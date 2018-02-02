@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	
+    <link href="https://unpkg.com/botframework-webchat/botchat.css" rel="stylesheet" />
+	<script src="https://unpkg.com/botframework-webchat/botchat.js"></script>
+    
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	
+	<link rel = "stylesheet" 
+         href = "http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+			
+      <script type = "text/javascript" 
+         src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		
+      <script type = "text/javascript" 
+         src = "https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
+        
+	<style type="text/css">
+		.botcontainer {
+			position : fixed;
+			bottom : 5px;
+			right : 5px;
+			height : 400px;
+			width : 500px;
+		}
+		.wc-chatview-panel {
+			border: #dbdee1;
+			border-style: solid;
+			border-width: 1px;
+		}
+		.bot_img {
+			height : 250px;
+			width : 250px;
+			position : fixed;
+			bottom : 5px;
+			right : 5px;
+		}
+	</style>
+	<script type="text/javascript">
+		var hideBot = function() {
+			$(".bot_img").hide();
+			$(".botcontainer").show();
+		}
+	</script>
+	
+  </head>
+  <body>
+	<div id="bot_img">
+		<a type="button" onclick="hideBot()">
+			<img src="http://34.208.142.120:8080/QlikSenseReportSearch//resources/img/Bot217.jpeg" class="bot_img">
+		</a>
+	</div>
+    <div id="bot" class="botcontainer"/>
+	
+	
+    <script>
+      BotChat.App({
+        directLine: { secret: 'fkcKYH6Imww.cwA.3Yg._n2SkzZKOn7p7F2d33mi2EFjz_zQa5iWsZPE3RobAX8' },
+        user: { id: 'you' },
+        bot: { id: 'q3-hr-bot' },
+        resize: 'detect'
+      }, document.getElementById("bot"));
+    </script>
+	
+	<script>
+		$(document).ready(function() {
+			$(".botcontainer").hide();
+			$(".wc-header").find("span").text("QBot - Employee Assistant");
+			$(".wc-header").append('<span id= "close_bot" style="float: right;">X</span>');
+			$("#close_bot").on('click', function () {			
+				$(".botcontainer").hide();
+				$(".bot_img").show();
+			});
+			console.log('div ====')
+			console.log($(".botcontainer").find("div.wc-textbox"))
+			console.log('input field===')
+			$(".botcontainer").find("div.wc-textbox").addClass("ui-widget");
+			console.log($("div.wc-textbox").find("input"))
+			$("div.wc-textbox").find("input").attr('id','tags');
+		});
+	</script>
+  </body>
+</html>
