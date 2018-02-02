@@ -1,3 +1,6 @@
+"scripts": {
+    "start": "node app.js"
+}
 {
   "requires": true,
   "lockfileVersion": 1,
